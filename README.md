@@ -24,6 +24,8 @@ espaçamento entre as chaves, separadores e valores de forma apropriada para mel
 
 # Estrutura do Código
 
+Este projeto foi desenvolvido com base nos princípios do Clean Code, priorizando a legibilidade, simplicidade e modularidade. Cada função tem um propósito claro e bem definido, facilitando a manutenção e expansão futura do código. Além disso, o uso de nomes significativos e a organização lógica do fluxo do programa garantem que qualquer desenvolvedor possa entender o funcionamento e realizar ajustes com facilidade.
+
 O código é dividido nas seguintes funções principais:
 
 - **extract_key_value_from_ini**: Extrai as chaves e valores do arquivo INI, removendo espaços indesejados, e armazena no map.
@@ -37,7 +39,6 @@ O código é dividido nas seguintes funções principais:
 - **print_key_value**: Exibe todas as chaves e valores no console com uma formatação clara e centralizada.
 
 - **write_ini_file**: Grava as chaves e valores do mapa no arquivo INI com formatação padronizada.
-
 
 # Execução
 
