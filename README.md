@@ -42,7 +42,7 @@ O código é dividido nas seguintes funções principais:
 
 # Execução
 
-Antes da execução do programa o arquivo ini se encontra sem formatação:
+Antes da execução do programa, o arquivo ini se encontra sem formatação:
 
 ![ini_file_before](readme_img/ini_before.png)
 
