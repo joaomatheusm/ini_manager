@@ -74,6 +74,6 @@ Após a execução do programa, o arquivo ini se encontra formatado e com as cha
 
 # Autor
 
-<p style="font-size: 1.5em;">João Matheus Carneiro de Miranda</p>
+### João Matheus Carneiro de Miranda
 
 [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jo%C3%A3o-matheus-374980237/)
