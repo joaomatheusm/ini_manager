@@ -1,21 +1,9 @@
 #include <string.h>
 #include <dirent.h>
 #include <map>
+#include "ini_manager.h"
 
 using namespace std;
-
-int center_text(const char* text, int width);
-int check_directory(const char *directory);
-int change_key_value(map<string, string>& ini_map);
-int add_key_value(map<string, string>& ini_map);
-int delete_key(map<string, string>& ini_map);
-void extract_key_value_from_ini(const char* ini_file, char* key_buff, char* value_buff, map<string, string>& ini_map);
-void clear_buffers(char* key_buff, char* value_buff);
-void add_char_to_buffer(char c, char* buffer);
-void get_date(char *date);
-void print_key_value(map<string, string>& ini_map);
-void read_input_trimmed(char* buffer, size_t size);
-void write_ini_file(FILE *p_txt_file, map<string, string>& ini_map);
 
 int main(int argc, char *argv[]) 
 {
@@ -41,7 +29,7 @@ int main(int argc, char *argv[])
         return 1;
     }
     
-    // Configura o comando com o diretï¿½rio
+    // Configura o comando com o diretório
     sprintf(command, "ls -ltr %s", directory);
     printf("\nListando arquivos no diretorio [ %s ]...\n", directory);
  	system(command);
@@ -138,7 +126,7 @@ void get_date(char *date)
     strftime(date, 20, "%d/%m/%Y %H:%M:%S", &ts);
 }
 
-// Verifica se o diretï¿½rio existe
+// Verifica se o diretório existe
 int check_directory(const char *directory)
 {
 	DIR *dir = opendir(directory);
@@ -179,7 +167,7 @@ void clear_buffers(char* key_buff, char* value_buff)
     value_buff[0] = '\0';
 }
 
-// Adiciona o caractere da iteraï¿½ï¿½o atual no final do buffer
+// Adiciona o caractere da iteração atual no final do buffer
 void add_char_to_buffer(char c, char* buffer) 
 {
     char temp[2] = { c, '\0' };
@@ -257,7 +245,7 @@ int add_key_value(map<string, string>& ini_map)
     }
     else
     {
-        printf("A chave inserida jï¿½ existe.\n");
+        printf("A chave inserida já existe.\n");
         return 1;
     }
 }
