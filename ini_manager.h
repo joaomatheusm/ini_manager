@@ -7,6 +7,10 @@
 #include <ctime>
 #include <dirent.h>
 #include <cstring>
+#include <map>
+
+const int TRUE = 1;
+const int FALSE = 0;
 
 using namespace std;
 

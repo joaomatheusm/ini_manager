@@ -1,6 +1,3 @@
-#include <string.h>
-#include <dirent.h>
-#include <map>
 #include "ini_manager.h"
 
 using namespace std;
@@ -179,7 +176,7 @@ void extract_key_value_from_ini(const char* ini_file, char* key_buff, char* valu
 {
     clear_buffers(key_buff, value_buff);
     
-    int is_key = 1;
+    int is_key = TRUE;
     int ini_len = strlen(ini_file);
 
     for (int j = 0; j < ini_len; j++)
@@ -192,7 +189,7 @@ void extract_key_value_from_ini(const char* ini_file, char* key_buff, char* valu
 				add_char_to_buffer(ini_file[j], value_buff);
 		}
         else if (ini_file[j] == '=')
-            is_key = 0;
+            is_key = FALSE;
     }
 
     ini_map[key_buff] = value_buff;
