@@ -16,8 +16,7 @@ int main(int argc, char *argv[])
     
     printf("---------------------------------------------\n");
     
-    printf("Informe o diretorio (caminho completo): ");  
-    read_input_trimmed(directory, sizeof(directory));
+    read_input_trimmed("Informe o diretorio (caminho completo): ", directory, sizeof(directory));
     
     if (check_directory(directory) != 0) 
     {
@@ -27,9 +26,8 @@ int main(int argc, char *argv[])
     
     printf("\nListando arquivos .ini no diretorio [ %s ]...\n", directory);
 	list_ini_files(directory);
-    
-    printf("\nInforme o nome do arquivo: ");    
-    read_input_trimmed(buff_filename, sizeof(buff_filename));
+     
+    read_input_trimmed("\nInforme o nome do arquivo: ", buff_filename, sizeof(buff_filename));
 
 	printf("\n--------------------------------------------------\n\n");
     
@@ -198,13 +196,11 @@ int change_key_value(map<string, string>& ini_map)
     char key_buff[50];
     char value_buff[50];
     
-    printf("Informe a chave: ");
-    read_input_trimmed(key_buff ,sizeof(key_buff));
+    read_input_trimmed("Informe a chave: ", key_buff ,sizeof(key_buff));
         
     if (ini_map.count(key_buff) > 0)
     {
-        printf("Informe o valor: ");
-        read_input_trimmed(value_buff ,sizeof(value_buff));
+        read_input_trimmed("Informe o valor: ", value_buff ,sizeof(value_buff));
         
         ini_map[key_buff] = value_buff;
         printf("Valor alterado com sucesso!\n");
@@ -224,13 +220,11 @@ int add_key_value(map<string, string>& ini_map)
     char key_buff[50];
     char value_buff[50];
 
-    printf("Informe a chave: ");
-    read_input_trimmed(key_buff ,sizeof(key_buff));
+    read_input_trimmed("Informe a chave: ", key_buff ,sizeof(key_buff));
 
     if (ini_map.count(key_buff) <= 0)
     {
-        printf("Informe o valor: ");
-    	read_input_trimmed(value_buff ,sizeof(value_buff));
+    	read_input_trimmed("Informe o valor: ", value_buff ,sizeof(value_buff));
 
         ini_map[key_buff] = value_buff;
         printf("Chave-valor adicionado com sucesso!\n");
@@ -250,8 +244,7 @@ int delete_key(map<string, string>& ini_map)
 	char key_buff[50];
     char value_buff[50];
 	
-	printf("Informe a chave: ");
-	read_input_trimmed(key_buff ,sizeof(key_buff));
+	read_input_trimmed("Informe a chave: ", key_buff, sizeof(key_buff));
 
    	if (ini_map.count(key_buff) > 0)
     {
@@ -278,8 +271,10 @@ void print_key_value(map<string, string>& ini_map)
 }
 
 // Remove a quebra de linha do input
-void read_input_trimmed(char* buffer, size_t size)
+void read_input_trimmed(const char* message, char* buffer, size_t size)
 {
+	printf("%s", message);
+	
     if (fgets(buffer, size, stdin)) 
         buffer[strcspn(buffer, "\n")] = '\0';
 }
@@ -321,4 +316,3 @@ void list_ini_files(const char* directory)
 
     closedir(dir);
 }
-
