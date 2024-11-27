@@ -8,6 +8,7 @@
 #include <dirent.h>
 #include <cstring>
 #include <map>
+#include <sys/stat.h>
 
 const int TRUE = 1;
 const int FALSE = 0;
@@ -25,7 +26,8 @@ void clear_buffers(char* key_buff, char* value_buff);
 void add_char_to_buffer(char c, char* buffer);
 void get_date(char *date);
 void print_key_value(map<string, string>& ini_map);
-void read_input_trimmed(char* buffer, size_t size);
+void read_input_trimmed(const char* message, char* buffer, size_t size);
 void write_ini_file(FILE *p_txt_file, map<string, string>& ini_map);
+void list_ini_files(const char *directory);
 
 #endif // INI_MANAGER_H
