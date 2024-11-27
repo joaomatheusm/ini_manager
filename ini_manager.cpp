@@ -26,10 +26,8 @@ int main(int argc, char *argv[])
         return 1;
     }
     
-    // Configura o comando com o diretório
-    sprintf(command, "ls -ltr %s", directory);
-    printf("\nListando arquivos no diretorio [ %s ]...\n", directory);
- 	system(command);
+    printf("\nListando arquivos .ini no diretorio [ %s ]...\n", directory);
+	list_ini_files(directory);
     
     printf("\nInforme o nome do arquivo: ");    
     read_input_trimmed(buff_filename, sizeof(buff_filename));
@@ -293,3 +291,35 @@ void write_ini_file(FILE *p_txt_file, map<string, string>& ini_map)
     for (map<string, string>::iterator it = ini_map.begin(); it != ini_map.end(); ++it)
         fprintf(p_txt_file, "%s=%s\n", it->first.c_str(), it->second.c_str());
 }
+
+// Lista arquivos com extensão ".ini" no diretório
+void list_ini_files(const char* directory)
+{
+    DIR *dir = opendir(directory);
+    if (!dir)
+    {
+        printf("Erro ao abrir o diretório: %s\n", directory);
+        return;
+    }
+
+    struct dirent *entry;
+    struct stat file_stat;
+    char file_path[1024];
+
+    printf("Arquivos .ini no diretório [%s]:\n", directory);
+
+    while ((entry = readdir(dir)) != NULL)
+    {
+        snprintf(file_path, sizeof(file_path), "%s/%s", directory, entry->d_name);
+
+        // Verifica se o caminho aponta para um arquivo regular
+        if (stat(file_path, &file_stat) == 0 && S_ISREG(file_stat.st_mode))
+        {
+            if (strstr(entry->d_name, ".ini") != NULL)
+                printf("- %s\n", entry->d_name);
+        }
+    }
+
+    closedir(dir);
+}
+
