@@ -9,7 +9,6 @@ int main(int argc, char *argv[])
     char          			filename[200];    
     char          			buff_filename[200];
     char  				    formatted_datetime[20];
-    char      				command[150];
     char         			ini_file[1000];
     char                  	key_buff[50];
     char                  	value_buff[50];
