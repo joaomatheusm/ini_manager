@@ -40,6 +40,8 @@ O código é dividido nas seguintes funções principais:
 
 - **write_ini_file**: Grava as chaves e valores do mapa no arquivo INI com formatação padronizada.
 
+- **list_ini_files**: Lista todos os arquivos com a extensão .ini no diretório selecionado.
+
 # Execução
 
 Antes da execução do programa, o arquivo ini se encontra sem formatação:
